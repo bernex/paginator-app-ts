@@ -1,0 +1,75 @@
+
+$color: #77b1f3;
+
+.body {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+
+  .button {
+    flex: none;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    > div {
+      color: $color;
+      border-radius: 20px;
+      padding: 10px 15px;
+      margin: 5px 5px;
+      box-shadow: 0 0px 6px 1px $color;
+      white-space: nowrap;
+    }
+
+    &.selected {
+      > div {
+        color: #fff;
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          background: #FBC02D;
+          color: #fff;
+          display: block;
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          right: 5px;
+          bottom: 5px;
+          border-radius: 20px;
+          z-index: -1;
+        }
+      }
+    }
+
+    .arrow {
+      padding: 10px 10px;
+
+      &:before {
+        display: block;
+        content: '';
+        width: 15px;
+        height: 15px;
+      }
+  
+      &.arrow-left {
+        &:before {
+          background: url('./assets/back.svg') no-repeat;
+          background-position: -1px center;
+        }
+      }
+      
+      &.arrow-right {
+        &:before {
+          background: url('./assets/next.svg') no-repeat;
+          background-position: 1px center;
+        }
+      }
+    }
+  }
+}
